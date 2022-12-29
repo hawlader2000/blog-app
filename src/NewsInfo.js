@@ -1,5 +1,5 @@
 import React from "react";
-import { useRef, useCallback } from "react";
+import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
@@ -7,17 +7,7 @@ import "./styles.css";
 import { Navigation } from "swiper";
 import styles from "./styles/style.module.css";
 const NewsInfo = () => {
-  const sliderRef = useRef(null);
-
-  const handlePrev = useCallback(() => {
-    if (!sliderRef.current) return;
-    sliderRef.current.swiper.slidePrev();
-  }, []);
-
-  const handleNext = useCallback(() => {
-    if (!sliderRef.current) return;
-    sliderRef.current.swiper.slideNext();
-  }, []);
+  const swiperRef = useRef();
   return (
     <>
       <div className="container">
@@ -26,9 +16,10 @@ const NewsInfo = () => {
             <Swiper
               slidesPerView={"auto"}
               spaceBetween={30}
-              navigation={true}
               modules={[Navigation]}
-              className="mySwiper"
+              onBeforeInit={(swiper) => {
+                swiperRef.current = swiper;
+              }}
             >
               <SwiperSlide>
                 <div className="card" id={styles.hw}>
@@ -95,9 +86,21 @@ const NewsInfo = () => {
               Consectetur fringilla sit sed morbi ultrices pellentesque eget
               elementum pharetra.
             </p>
+            <div className="d-inline-flex" id={styles.button}>
+              <button
+                onClick={() => swiperRef.current?.slidePrev()}
+                id={styles.prev}
+              >
+                Prev
+              </button>
+              <button
+                onClick={() => swiperRef.current?.slideNext()}
+                id={styles.next}
+              >
+                Next
+              </button>
+            </div>
           </div>
-          <div className="prev-arrow" onClick={handlePrev} />
-          <div className="next-arrow" onClick={handleNext} />
         </div>
       </div>
     </>
