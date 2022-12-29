@@ -1,4 +1,51 @@
-#infoNews {
-  height: 200px;
-  width: 300px;
+body {
+  background-color: black;
+}
+#topnews {
+  width: 424px;
+  height: 72px;
+
+  font-family: "Didot";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 72px;
+  /* identical to box height, or 129% */
+
+  letter-spacing: 0.0015em;
+  color: #ffffff;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+#topnewspara {
+  width: 424px;
+  height: 128px;
+
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+  /* or 160% */
+
+  letter-spacing: 0.0015em;
+
+  color: rgba(255, 255, 255, 0.95);
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+#infoall {
+  padding-right: 40px;
+  padding-top: 250px;
+  padding-left: 80px;
 }
