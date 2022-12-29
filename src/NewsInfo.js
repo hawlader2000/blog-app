@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import "./styles.css";
-// import { Navigation } from "swiper";
+import { Navigation } from "swiper";
 import styles from "./styles/style.module.css";
 const NewsInfo = () => {
   const sliderRef = useRef(null);
@@ -23,7 +23,13 @@ const NewsInfo = () => {
       <div className="container">
         <div className="d-lg-flex">
           <div className="swiper">
-            <Swiper slidesPerView={"auto"} spaceBetween={30}>
+            <Swiper
+              slidesPerView={"auto"}
+              spaceBetween={30}
+              navigation={true}
+              modules={[Navigation]}
+              className="mySwiper"
+            >
               <SwiperSlide>
                 <div className="card" id={styles.hw}>
                   <div class="card-body">
@@ -90,9 +96,7 @@ const NewsInfo = () => {
               elementum pharetra.
             </p>
           </div>
-          <div className="swiper-button-prev" onClick={handlePrev}>
-            Click
-          </div>
+          <div className="prev-arrow" onClick={handlePrev} />
           <div className="next-arrow" onClick={handleNext} />
         </div>
       </div>
