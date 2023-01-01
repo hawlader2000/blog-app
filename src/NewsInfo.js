@@ -4,88 +4,117 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import "./styles.css";
+import { FaArrowRight } from "react-icons/fa";
 import { Navigation } from "swiper";
 import styles from "./styles/style.module.css";
 const NewsInfo = () => {
   const swiperRef = useRef();
   return (
     <>
-      <div className="container">
-        <div className="d-lg-flex">
-          <div className="swiper">
+      <div className="container" id={styles.section}>
+        <div className="row">
+          <div className="col-xl-9" id={styles.card}>
             <Swiper
-              slidesPerView={"auto"}
+              slidesPerView={3}
               spaceBetween={30}
               modules={[Navigation]}
               onBeforeInit={(swiper) => {
                 swiperRef.current = swiper;
               }}
             >
-              <SwiperSlide>
+              <SwiperSlide id={styles.swiperslide}>
                 <div className="card" id={styles.hw}>
+                  <img alt="" src="./images/image1.png" />
                   <div class="card-body">
-                    <img alt="" src="./images/image1.png" />
                     <h2>Title</h2>
                     <p class="card-text">
                       Aliquam massa scelerisque varius nulla vitae mattis ac
                       nunc dignissim. Posuere consequat nibh varius auctor sit
                       netus diam sodales in.
                     </p>
-                    <button className="bg-dark text-white">Read More</button>
+                    <button
+                      className="bg-black text-white"
+                      id={styles.readmore}
+                    >
+                      Read More <FaArrowRight />
+                    </button>
                   </div>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
                 <div className="card" id={styles.hw}>
+                  <img alt="" src="./images/image1.png" />
                   <div class="card-body">
-                    <img alt="" src="./images/image1.png" />
                     <h2>Title</h2>
                     <p class="card-text">
                       Aliquam massa scelerisque varius nulla vitae mattis ac
                       nunc dignissim. Posuere consequat nibh varius auctor sit
                       netus diam sodales in.
                     </p>
-                    <button className="bg-dark text-white">Read More</button>
+                    <button
+                      className="bg-black  text-white"
+                      id={styles.readmore}
+                    >
+                      Read More <FaArrowRight />
+                    </button>
                   </div>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
                 <div className="card" id={styles.hw}>
+                  <img alt="" src="./images/image2.png" />
                   <div class="card-body">
-                    <img alt="" src="./images/image2.png" />
                     <h2>Title</h2>
                     <p class="card-text">
                       Aliquam massa scelerisque varius nulla vitae mattis ac
                       nunc dignissim. Posuere consequat nibh varius auctor sit
                       netus diam sodales in.
                     </p>
-                    <button className="bg-dark text-white">Read More</button>
+                    <button
+                      className="bg-black  text-white"
+                      id={styles.readmore}
+                    >
+                      Read More
+                      <FaArrowRight />
+                    </button>
                   </div>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
                 <div className="card" id={styles.hw}>
+                  <img alt="" src="./images/image2.png" />
                   <div class="card-body">
-                    <img alt="" src="./images/image1.png" />
                     <h2>Title</h2>
                     <p class="card-text">
                       Aliquam massa scelerisque varius nulla vitae mattis ac
                       nunc dignissim. Posuere consequat nibh varius auctor sit
                       netus diam sodales in.
                     </p>
-                    <button className="bg-dark text-white">Read More</button>
+                    <button
+                      className="bg-black text-white"
+                      id={styles.readmore}
+                    >
+                      Read More
+                      <FaArrowRight />
+                    </button>
                   </div>
                 </div>
               </SwiperSlide>
             </Swiper>
           </div>
-          <div id={styles.infoall}>
+          <div id={styles.infoall} className="col-xl-3">
             <p id={styles.topnews}>Top News</p>
             <p id={styles.topnewspara}>
               Id blandit convallis ipsum commodo fermentum urna pellentesque.
               Consectetur fringilla sit sed morbi ultrices pellentesque eget
               elementum pharetra.
             </p>
+            <div>
+              <button className="bg-black text-white" id={styles.viewall}>
+                View All
+                <FaArrowRight />
+              </button>
+            </div>
             <div className="d-inline-flex" id={styles.button}>
               <button
                 onClick={() => swiperRef.current?.slidePrev()}
@@ -97,7 +126,7 @@ const NewsInfo = () => {
                 onClick={() => swiperRef.current?.slideNext()}
                 id={styles.next}
               >
-                Next
+                <i class="bi bi-arrow-left-circle-fill"></i>
               </button>
             </div>
           </div>
